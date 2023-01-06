@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>D-Day-counter</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<script>
+    const dateFormMaker = () => {
+        console.log(document.getElementById('input').value)
+    }
+
+    const counterMake = () => {
+        let nowDate = new Date();
+        let targetDate = new Date("2023-01-06");
+        let remaining = ((nowDate - targetDate) / 1000 ) / 3600;
+        targetDate = (targetDate / 1000) / 3600;
+        console.log(remaining+9);
+    }
+</script>
+<body>
+    <input id="input"/>
+    <button onclick="counterMake()">버튼</button>
+</body>
+</html>
