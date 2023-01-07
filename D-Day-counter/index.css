@@ -3,6 +3,7 @@
 }
 
 body {
+  background-color: orange;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,7 +11,23 @@ body {
   height: 300px;
 }
 
+h1 {
+  font-size: 50px;
+}
+
 #d-day-container {
+  display: flex;
+  flex-direction: row;
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.d-day-child-container,
+.d-hour-child-container,
+.d-min-child-container,
+.d-sec-child-container {
+  padding: 5px;
 }
 
 div.input {
@@ -21,4 +38,5 @@ div.input {
 input.target_input {
   margin-right: 5px;
   margin-left: 5px;
+  width: 50px;
 }
