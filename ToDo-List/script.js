@@ -71,3 +71,49 @@ const deleteAll = () => {
   }
   saveItemsFn();
 };
+
+const weatherSearch = (position) => {
+  const apiKey = "bed214c47bf220ca5766bab3a0971140";
+
+  const openWeatherRes = fetch(
+    `https://api.openweathermap.org/data/2.5/weather?lat=${position.latitude}&lon=${position.longitude}&appid=bed214c47bf220ca5766bab3a0971140`
+  )
+    .then((res) => {
+      return res.json();
+    })
+    .then((json) => {
+      console.log(json.name, json.weather[0].description);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+const accessToGeo = (position) => {
+  const positionObj = {
+    latitude: position.coords.latitude,
+    longitude: position.coords.longitude,
+  };
+  weatherSearch(positionObj);
+};
+
+const askForLocation = () => {
+  navigator.geolocation.getCurrentPosition(accessToGeo, (err) => {
+    console.log(err);
+  });
+};
+
+askForLocation();
+
+// const promiseTest = () => {
+//   return new Promise((resolver, reject) => {
+//     setTimeout(() => {
+//       resolver("success");
+//       // reject("error");
+//     }, 2000);
+//   });
+// };
+
+// promiseTest().then((res) => {
+//   console.log(res);
+// });
